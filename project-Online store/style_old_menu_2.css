@@ -1,0 +1,191 @@
+<html>
+<head>
+<style>
+
+/* ////////////////////  Styling new main menu /////////////////// */
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-height: 100vh;
+  font-family: Verdana, sans-serif;
+}
+
+nav {
+  width: 70%;
+  margin: 25px;
+  background: #f9f9f9;
+  padding: 16px;
+  .menuItems {
+    list-style: none;
+    display: flex;
+
+    li {
+      margin:50px;
+
+      a {
+        text-decoration: none;
+        color: #8f8f8f;
+        font-size: 24px;
+        font-weight: 400;
+        transition: all 0.5s ease-in-out;
+        position: relative;
+        text-transform: uppercase;
+
+        &::before {
+          content: attr(data-item);
+          transition: 0.5s;
+          color: #8254ff;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          width: 0;
+          overflow: hidden;
+        }
+
+        &:hover {
+          &::before {
+            width: 100%;
+            transition: all 0.5s ease-in-out;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* /////////////////////////////////////////////////////////////// */
+
+/* Add a black background color to the top navigation */
+.topnav {
+    background: url(https://martinadumbarova.info/educom_pics/rustic_wood.jpg) no-repeat;
+    position: relative;
+    margin-bottom: 30px;
+    overflow: hidden;
+    font-family: Arial;
+    
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: left;
+    color: #000000;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 30px;
+  }
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    background-color: #ffffff;
+    color: #333333;
+  }
+  
+  /* Add a color to the active/current link */
+  .topnav a.active {
+    background-color: #000000;
+    color: white;
+  }
+
+  .news {
+    width: 500px;
+  }
+
+ /*
+  #select-product
+  {
+    width: 177px;
+  }
+
+  #select-product option
+  {
+    width: flex;
+  }
+  
+  */
+  
+  /* Style the header with a grey background and some padding */
+.header {
+  width: 100%;
+  height: 15%;
+  overflow: hidden;
+  background-color: #ffffff;
+  padding: 20px 20px;
+}
+.header img{
+  height: 70%;
+  border:#ffffff;
+  border-style: solid;
+}
+
+/* Style the header links */
+.header a {
+  float: left;
+  color: #000000;
+  text-align: center;
+  vertical-align: middle;
+  padding: 20px;
+  text-decoration: none;
+  font-size: 30px;
+  line-height: 90px;
+  border-radius: 4px;
+}
+
+/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+/* Change the background color on mouse-over */
+.header a:hover {
+  color: #83b735;
+}
+
+/* Style the active/current link*/
+.header a.active {
+  background-color: red;
+  color: #e89820;
+}
+
+/* Float the link section to the right */
+.header-right {
+  float: right;
+}
+
+.footer
+		{
+    		width: 100%;
+    		height: 10%;
+    		background-color: #333;
+    		position: absolute;
+    		bottom: 0%;
+    	}
+
+/* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .header-right {
+    float: none;
+  }
+}
+
+
+</style>
+</head>
+<body>

@@ -1,0 +1,64 @@
+<!-- /////////////////////////// Roll the dice Button ////////////////////////////////////// -->
+
+<div class="roll-dice">
+    <button *ngIf="endTurn == false" type="button" id="roll-button" (click)="rollDice()">
+        <img src="../../assets/roll_the_dice_active.png" style="background-color: #0a0025;">
+    </button>
+    <button *ngIf="endTurn == true" type="button" id="roll-button">
+        <img src="../../assets/roll_the_dice_inactive.png" style="background-color: #0a0025;">
+    </button>
+</div> 
+
+<!-- /////////////////////////// Dice Visualize ////////////////////////////////////// -->
+
+<div class="all-dice">
+    <div class="die" *ngFor="let diceValue of diceValues">
+        <button type="button" (click)="selectDie(diceValue)">
+            <img src="../../assets/die_{{diceValue.state}}_{{diceValue.face}}.png">
+        </button>
+    </div>  
+</div>
+<!-- /////////////////////////// Score card ////////////////////////////////////// -->
+
+<div class="player" *ngIf="winner_text == ''">
+    <h1>Player {{player}}</h1>
+    <p *ngIf="endTurn == false">
+        Roll dice {{nrRolls}}/3
+    </p>
+    <p *ngIf="endTurn == true">
+        Choose a category to score.
+    </p>
+</div>
+<div class="player" *ngIf="winner_text != ''">
+    <h1>{{winner_text}}</h1>
+    <p>
+        Congratulations! Come back soon and enjoy new game.
+    </p>
+</div>
+
+<div class="score">
+    <div class="upper" *ngFor="let table of UpperTableValues">
+        <div class="upper-column">
+            <h3><b><br/>{{table.name}}</b></h3>
+            <hr>
+            <input type="button" (click)="selectTable(table)" value="{{table.predicted}}" *ngIf="table.used == false">
+            <h4 *ngIf="table.used == true">{{table.predicted}}</h4>
+        </div>
+    </div>
+    <div class="lower" *ngFor="let table of LowerTableValues">
+        <div class="lower-column">
+            <h3><b><br/>{{table.name}}</b></h3>
+            <hr>
+            <input type="button" (click)="selectTable(table)" value="{{table.predicted}}" *ngIf="table.used == false">
+            <h4 *ngIf="table.used == true">{{table.predicted}}</h4>
+        </div>
+    </div>
+</div>
+
+<div class="total-score">
+    <h4>TOTAL {{totalScore}} points</h4>
+</div>
+
+
+
+

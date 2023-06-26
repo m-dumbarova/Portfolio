@@ -1,0 +1,198 @@
+.rules {
+    margin: auto;
+    padding-left: 35%;
+    margin-top: 20px;
+    /* border: solid 3px red; */
+}
+
+button {
+    text-decoration: none;
+    color: #b71037;
+    font-family: Perfograma;
+    font-size: 24px;
+    background-color: transparent;
+    padding-top: 7px;
+    padding-bottom: 12px;
+    padding-left:20px;
+    padding-right: 20px;
+    border: 0px;
+}
+
+.modal-dialog {
+    width:90%;
+}
+
+.modal-title {
+    color:#000;
+}
+
+.modal-body {
+    color:#fff;
+    
+}
+.modal-body h1 {
+    color:#b71037;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    text-align: center;
+}
+.modal-body h2 {
+    color:#b71037;
+    font-size: 20px;
+    font-weight: 300;
+    text-align: center;
+}
+
+.modal-body h3 {
+    color:#fff;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.modal-body p, ul, li, table, tr, td {
+    color:#fff;
+    font-size: 16px;
+    font-weight: 300;
+}
+.modal-body td i {
+    color:#7a7a7a;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 30px;
+}
+.modal-body hr {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.modal-body img {
+    margin: 5px;
+    
+}
+.modal-body b {
+    color:#fff;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* /////////////////////// MODAL window //////////////////////// */
+/* .jw-modal-wrapper {
+    display: none;
+} */
+
+.jw-modal {
+    /* modal container fixed across whole screen */
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    
+
+    /* z-index must be higher than .jw-modal-background */
+    z-index: 1000;
+    
+    /* enables scrolling for tall modals */
+    overflow: auto;
+}
+
+.jw-modal-body {
+    padding: 20px;  
+    background-image: url('../../assets/background.jpg');
+    background-position: top;
+    background-size: cover;
+    background-repeat:repeat-y;
+    /* background: rgb(0,61,255);
+    background: linear-gradient(270deg, rgba(0,61,255,1) -1%, rgba(10,0,37,0.8379726890756303) 20%, rgba(10,0,37,0.8015581232492998) 80%, rgba(183,16,55,1) 100%); */
+
+    border-radius: 10px;
+    /* margin exposes part of the modal background */
+    margin: 40px;
+}
+/* ///////// Header ///////// */
+.modal-header {
+    width: 100%;
+    display: inline-flex;
+     /* border: solid 1px rebeccapurple; */  
+}
+.modal-header h4 {
+    color:#fff;
+    font-size: 32px;
+    text-align: center;
+    font-family: Perfograma, sans-serif;
+}
+.header-left {
+    width: 96%;
+    height: 50px;
+    padding-top: 0.3%;
+    /* border: solid 3px blue; */
+}
+
+.header-right {
+    /* border: solid 3px red; */
+    width: 4%;
+    height: 50px;
+    padding-right: 40px;
+    /* border: solid 3px red; */ 
+}
+
+/* ///////// Main content ///////// */
+.jw-modal-body .modal-body {
+    margin-top: 30px;
+    width:50%;
+    margin:auto;
+     /* border: solid 3px red; */ 
+}
+
+.jw-modal-body p {
+    color: #fff;
+}
+.which-section {
+    width:90%;
+    margin:auto; 
+    /* border: solid 3px red; */
+}
+.which-section table tr td {
+    vertical-align: middle;
+}
+
+.jw-modal-body ul li {
+    padding-left: 30px;
+    list-style-position: inside;
+}
+/* ///////// Footer ///////// */
+.modal-footer {
+    width:100%;
+    margin-top: 50px;
+}
+.modal-footer button {
+    width:100%;
+    text-align: center;
+    margin: auto;
+}
+
+/* ////////////////// */
+
+.jw-modal-background {
+    /* modal background fixed across whole screen */
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    /* semi-transparent black  */
+    background-color: #000;
+    opacity: 0.8; 
+    
+    /* z-index must be below .jw-modal and above everything else  */
+    z-index: 900;
+}
+
+body.jw-modal-open {
+    /* body overflow is hidden to hide main scrollbar when modal window is open */
+    overflow: hidden;
+}

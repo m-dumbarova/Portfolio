@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Egg hunter</title>
+        <link rel="stylesheet" href="style.css">
+        <!--<script src="minesweeper.js"></script>-->
+    </head>
+
+    <body>
+       
+        <div class="screen">
+
+            <div id="welcome-screen">
+                <!-- ///////////////// 1. Show welcome video -->
+                <!-- Welcome screen video auto play -->
+                <video class="video-container" id="welcome" autoplay muted>
+                    <source src="assets/video/egghunter_1.mp4" type="video/mp4">
+                </video>
+            </div>
+            
+
+
+            <!-- ///////////////// 2. Show game rules and button "Start" (egghunter_5.mp4 as looping background) -->
+            <div id="rules-screen">
+                <video class="video-container" id="rules" autoplay loop muted>
+                    <source src="assets/video/egghunter_5.mp4" type="video/mp4">
+                </video>
+                
+                <!-- Game rules and start button -->
+                <h1>Rules of the game</h1>
+                <p>
+                    Your mission is to skillfully collect eggs by mouse-clicking on them. But beware dear hunter, some of these eggs house unhatched dragon babies. Their mom is waiting to catch you off guard!<br/>
+                    Pay close attention to the numbered clues appearing on certain eggs you have clicked. These hints will reveal how many dragon eggs are lurking directly around your chosen egg. By strategically deciphering these clues, you can unlock the path to victory by safely uncovering all the non-dragon eggs.<br/>
+                    As an esteemed Egg Hunter, you possess a remarkable tool in your arsenal: the mighty "Mark" button. When you click on this button, you enter the marking mode, enabling you to exercise your keen judgment. With a mere click, you can mark an egg as a potential dragon egg without collecting it. This clever tactic allows you to carefully assess the eggs, distinguishing between the treasured and the treacherous. Should you change your mind, a simple click (while in marking mode) on the marked egg will make it available for collecting once again.<br/>
+                    Embrace the power of the "Mark" button, and let your strategic prowess guide you towards triumph in this exhilarating egg-hunting adventure!<br/>
+                </p>
+                <b>Exercise caution, embrace strategy, and may your egg-hunting skills lead you to triumph!</b>
+    
+                <div class="btn">
+                   <!--  <button id="start-game-button">Start</button> -->
+
+                    <div class="container">
+                        <a id="start-game-button" class="button" href="#" style="--color:rgb(255, 191, 0);">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          Start the game
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ////////////////// 3. Load game board and call startGame() (egghunter_2.mp4 as looping background) -->
+            <div id="game-screen">
+                <!-- Game board video-->
+                <video class="video-container" id="game-board" autoplay loop muted>
+                    <source src="assets/video/egghunter_2.mp4" type="video/mp4">
+                </video>
+
+                <!-- Game board display -->
+                <h1><span id="number-dragon-eggs"></span></h1>
+                <br/>
+                <div id="board"></div>
+
+                <br/><br/>
+                <!-- Button MARK display -->
+                <div class="container">
+                    <a id="potentional-dragon-mark-button" class="button" href="#" style="--color:rgb(255, 191, 0);">
+                      Mark mode
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </a>
+                </div>
+                <!-- Button UNMARK display -->
+                <!-- <div class="container">
+                    <a id="potentional-dragon-unmark-button" class="button" href="#" style="--color:rgb(255, 191, 0);">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      Click mode
+                    </a>
+                </div> -->
+            </div>
+            
+
+            <!-- ///////////////// 4.1. Game over => Show game over video (egghunter_3.mp4), no loop
+                 /////////////////                => Show egghunter_5.mp4 video as looping background and show button "Try again" -->
+            <div id="game-over-screen">
+                <!-- Game over -->
+                <video class="video-container" id="game-over" autoplay muted>
+                    <source src="assets/video/egghunter_3.mp4" type="video/mp4">
+                </video>
+                <!-- Try again video -->
+                <video class="video-container" id="game-over-try-again"  loop muted>
+                    <source src="assets/video/egghunter_5.mp4" type="video/mp4">
+                </video>
+
+                <!-- Button display -->
+                <div class="container-try-again">
+                    <a id="try-again-button" class="button" href="#" style="--color:rgb(255, 191, 0);">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      Try again
+                    </a>
+                </div>
+            </div>
+            
+
+            <!-- ////////////////// 4.2. Win => Show win video (egghunter_4.mp4), no loop
+                 //////////////////          => Show button "Play again" -->
+            <div id="win-screen">
+                <!-- You win -->
+                <video class="video-container" id="win" autoplay muted>
+                    <source src="assets/video/egghunter_4.mp4" type="video/mp4">
+                </video>
+                <!-- Play again video -->
+                <video class="video-container" id="win-play-again" loop muted>
+                    <source src="assets/video/egghunter_6.mp4" type="video/mp4">
+                </video>
+
+                <!-- Button display -->
+                <div class="container-try-again">
+                    <a id="play-again-button" class="button" href="#" style="--color:rgb(255, 191, 0);">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      Play again
+                    </a>
+                </div>
+            </div>
+
+        </div> <!-- End of the screens div -->
+
+
+        
+
+        
+        
+
+        <script src="egg_hunter_logic.js"></script>
+    </body>
+</html>

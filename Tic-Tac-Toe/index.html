@@ -1,0 +1,253 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <!--
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    -->
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+           
+        }
+
+        body {
+            background-image: url("pics/background.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .winner h1 {
+            text-align: left;
+            margin-top: 50px;
+        }
+        
+        #game {
+            width: 100%;
+            height: 100%;
+            color:black;  
+        }
+/* ////////////////////////////////////////////////////// */
+        .game-elements {
+            width: 100%;
+            height: 100vh;
+            align-items: left;
+
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex-direction: row;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -webkit-flex-wrap: nowrap;
+            -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+            -webkit-justify-content: flex-start;
+            -ms-flex-pack: start;
+            justify-content: flex-start;
+            -webkit-align-content: stretch;
+            -ms-flex-line-pack: stretch;
+            align-content: stretch;
+            -webkit-align-items: flex-start;
+            -ms-flex-align: start;
+            align-items: flex-start;
+        }
+
+        .logo {
+            width: 30%;
+            height: 60vh;
+            margin: auto;
+            background-image: url("pics/logo_outline.svg"); 
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 55%;
+
+
+            -webkit-order: 0;
+            -ms-flex-order: 0;
+            order: 0;
+            -webkit-flex: 1 0 auto;
+            -ms-flex: 1 0 auto;
+            flex: 1 0 auto;
+            -webkit-align-self: auto;
+            -ms-flex-item-align: auto;
+            align-self: auto;
+
+/*             border: solid 1px red;    */
+        }
+
+        .game-board {
+            width: 30%;
+            height: 60vh;
+            margin: auto;
+        /*    background-color: rgba(255, 255, 255, 0.5);   */
+            color:black; 
+
+            -webkit-order: 0;
+            -ms-flex-order: 0;
+            order: 0;
+            -webkit-flex: 1 0 auto;
+            -ms-flex: 1 0 auto;
+            flex: 1 0 auto;
+            -webkit-align-self: auto;
+            -ms-flex-item-align: auto;
+            align-self: auto;
+
+/*            border: solid 1px blue;   */
+        }
+
+        .game-settings {
+            width: 30%;
+            height: 60vh;
+            margin: auto;
+            padding-left: 5%;
+
+            -webkit-order: 0;
+            -ms-flex-order: 0;
+            order: 0;
+            -webkit-flex: 1 0 auto;
+            -ms-flex: 1 0 auto;
+            flex: 1 0 auto;
+            -webkit-align-self: auto;
+            -ms-flex-item-align: auto;
+            align-self: auto; 
+
+/*            border: solid 1px red;     */
+        }
+/* ////////////////////////////////////////////////////// */
+        .box {
+            padding: 4px auto;
+            margin: 1% 1% 1% 1%;  
+            width: 30%;
+            height: 30%;
+            text-align: center;
+            vertical-align: middle;
+            display: inline-block;
+            font-size: 120pt;
+            font-weight: 100;
+            background-color: rgba(255, 255, 255, 0.5);
+            border: solid 3px plum;
+        }
+
+        .used {
+            background-color:rgb(170, 130, 170, 0.5);
+        }
+
+        h1, h2 {
+            color: plum;
+        }
+
+        button {
+            background-color: plum;
+            color: black;
+            font-weight: 600;
+            font-size: 16pt;
+            line-height: 20pt;
+            border-radius: 10px;
+            border-color: plum;
+            padding: 9px 50px;
+            text-decoration: none;
+            transition: 0.7s;
+        }
+     #mobileMessage {
+      display: none; /* Initially hide the message */
+    }
+
+    @media only screen and (max-width: 1600px) {
+      /* Show the message for devices with a maximum width of 767px */
+      #mobileMessage {
+        display: block;
+        font-size: 0.9rem;
+        font-weight:600;
+        color:#000;
+        text-align:center;
+        margin-top:0.5rem;
+        margin-bottom: 0.5rem;
+      }
+    }
+
+        @media screen and (max-width: 680px) {
+            .game-elements {
+                width: 100%;
+                height: 100vh;
+                align-items: left;
+            }
+            .logo {
+                width: 100%;
+                max-height: 33vh;
+            }
+            .game-board {
+                width: 100%;
+                max-height: 33vh;
+            }
+            .game-settings {
+                width: 100%;
+                max-height: 33vh;
+            }
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+    
+
+<!-- ///////////////////////////////////////////////////////////////////////////////// -->
+
+  <div id="mobileMessage">
+    The game is temporary not supported on mobile devices. <br/>Please, enjoy on desktop.
+  </div>
+
+    <div id="game">
+        <div class="game-elements">
+        
+            <div class="logo">
+
+            </div>
+            <div class="game-board" v-if="showBoard"> 
+                <div class="box" v-for="box in board" :class="{ used: box.isUsed }"  @click="changeValue(box)">{{ box.value }}</div> 
+            </div> 
+
+            <div class="game-settings">
+                <div class="start">
+                    <h1>Who is playing?</h1>
+
+                    <input type="text" id="inputPlayerXname" v-model="playerXname" placeholder="Player X is ...">
+                    <br/><br/>
+                    <input type="text" id="inputPlayerOname" v-model="playerOname" placeholder="Player O is ..."> 
+                    <br/><br/>
+                
+                    <div>
+                        <h2 v-if="showPlayers">You are ready to start. <br/>Have fun!</h2>
+                        <p id="player1-on-start"></p>
+                        <p id="player2-on-start"></p>
+                    </div>
+
+                    <div>
+                        <h1 v-if="gameDone">Statistic</h1>
+                        <p id="player1"></p>
+                        <p id="player2"></p>
+                    </div>
+
+                    <h2 id="player"></h2>
+
+                    <button type="submit" id="startBtn" @click="submit">
+                        <span v-if="finished">NEW GAME</span>
+                        <span v-else>START</span>
+                    </button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- /////////////////////////////////////////////////////////////////////////////////  -->
+
+    <script src="functions.js"></script>
+</body>
+</html>

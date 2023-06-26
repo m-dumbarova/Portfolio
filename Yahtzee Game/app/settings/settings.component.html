@@ -1,0 +1,70 @@
+
+<!-- <script>
+  window.addEventListener("DOMContentLoaded", event => {
+    const audio = document.querySelector("audio");
+    audio.volume = 0.2;
+    audio.play();
+    });
+</script> -->
+
+
+
+<div *ngIf="showSettings==false">
+    <div class="settings" >
+        <button class="custom" (click)="openModal()">SETTINGS</button>
+    </div>
+</div>
+
+<div *ngIf="showSettings==true">
+
+    <div class="jw-modal">
+        <div class="jw-modal-body">
+            
+            <!-- // Header // -->
+            <div class="modal-header">
+                <div class="header-left">
+                    <h4 class="modal-title">YAHTZEE - SETTINGS</h4>
+                </div>
+                <div class="header-right">
+                    <button (click)="closeModal()">X</button>
+                </div>
+            </div>
+
+            <!-- /////////////////////////////////////// Main content //////////////////////////// -->
+            <div class="modal-body">
+                <h1>Music</h1>
+                <div class="music">
+                    <div class="music-on">
+                        <button (click)="playMusic()">ON</button>
+                        <audio src="../../assets/music/powdown-110017.mp3"></audio>
+                    </div>
+                    <div class="music-off">
+                        <button (click)="stopMusic()">OFF</button>
+                    </div>
+                </div>
+ 
+                <br/><br/>
+
+                <h1>Who is playing?</h1>
+                <div class="players">
+                    <div class="label">
+                        <label>Player 1</label>
+                    </div>
+                    <input type="text">
+
+                    <div class="label">
+                        <label>Player 2</label>
+                    </div>
+                    <input type="text"> 
+                </div>
+                <button >START NEW GAME</button>
+            </div>
+            <!--///////////////////////////////////////////////////////////////////////////////////-->
+            <!-- // Footer // -->
+            <div class="modal-footer">
+                <button (click)="closeModal()">Back to the game</button>
+            </div>
+        </div>
+    </div>
+    <div class="jw-modal-background"></div>
+</div>

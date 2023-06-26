@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>OMDB Movie search</title>
+        <script src="https://kit.fontawesome.com/11bc632ebd.js" crossorigin="anonymous"></script>
+        <script src="script.js"></script>
+        <link href="style.css" rel="stylesheet">
+    </head>
+
+    <body>
+    <div class="main">
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="#">OMDB movie<span> finder</span></a>
+                </div>
+
+                <div class="button">
+                    <form name="search_by_title" action="" method="POST">
+                        <input class="search_input_field" type="text" id="movie_title" name="movie_title" value="Lord of the rings">
+                        <input class="btn" type="button" name="submit_by_title" value="Search" onClick="searchByTitle()">
+                        <br/><br/>
+                        <label id="found_movies_info"> 0 results found</label>
+                        <label hidden id="found_movies">0</label>
+                    </form>
+                </div>
+            </nav>
+
+            <div class="content">
+
+                <div class="rating">
+                    <div class="imdb-points">
+                        <h2 id="imdb-score">0</h2>
+                    </div>
+                    <div class="vote">
+                        <p id="imdb-votes"><b>N/A</b>
+                        </br>votes on IMDB</p>
+                    </div>
+                </div>
+                
+                <br/>
+                <h1 id="movie-title-str">N/A</h1>
+
+                <div class="movie-details">
+                    <div class="details-categories">
+                        <h4>Released</h4>
+                        <h4>Genre</h4>
+                        <h4>Duration</h4>
+                        <h4>Awards</h4>
+                        <h4>Actors</h4>
+                    </div>
+                    <div class="details">
+                        <h4 id="released-on">N/A</h4>
+                        <h4 id="genre">N/A</h4>
+                        <h4 id="duration">N/A</h4>
+                        <h4 id="awards">N/A</h4>
+                        <h4 id="actors">N/A</h4>
+                    </div>
+                </div>
+
+                <p id="plot">N/A</p>
+                <br/>
+            </div>
+
+            <div class="buttons">
+                <input class="btn-nav" type="button" name="" value="Previous" onClick="showPreviousMovie()">
+                <label id="id-found-movies"> 0 </label>
+                <input class="btn-nav" type="button" name="" value="Next" onClick="showNextMovie()">  
+            </div>
+
+        </div>
+
+        <div class="container-poster">
+            <img id="poster" src="">
+        </div>
+    </div>
+    </body>
+	
+ </html>

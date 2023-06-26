@@ -1,0 +1,259 @@
+<div *ngIf="showRules==false">
+    <div class="rules" >
+        <button class="custom" (click)="openModal()">game Rules</button>
+    </div>
+</div>
+
+<div *ngIf="showRules==true">
+
+        <div class="jw-modal">
+            <div class="jw-modal-body">
+                
+                <!-- // Header // -->
+                <div class="modal-header">
+                    <div class="header-left">
+                        <h4 class="modal-title">YAHTZEE - game rules</h4>
+                    </div>
+                    <div class="header-right">
+                        <button (click)="closeModal()">X</button>
+                    </div>
+                </div>
+
+                <!-- /////////////////////////////////////// Main content //////////////////////////// -->
+                <div class="modal-body">
+                    <h1>Object of the Game</h1>
+                    <h2>Roll dice to get the highest score after all 13 rounds.</h2>
+                   
+                    <h3>Rules in short</h3>
+                    <ul>
+                        <li>Roll up to 3 times each turn to rack up the best possible score.</li>
+                        <li>Decide which dice combo you're going for.</li>
+                        <li>After each turn, write your score in one empty box on the score card.</li>
+                    </ul>
+                   
+                    <h3>Scoring</h3>
+                    <p>There are 13 scoring boxes. On each completed turn, the player must score in one of the 13 boxes. 
+                       The boxes may be filled in any order, according to the player's best judgment.
+                       The score card has an upper section and a lower section:</p>
+                    
+                    <div class="which-section">
+                       <h3>UPPER SECTION</h3>
+                    
+        
+                       <table width="97%" style="border:1px;">
+                            <tr>
+                                <td>
+                                    <b>Aces</b> - Sum all the Aces that you've rolled.
+                                </td>
+                                <td>
+                                    <img src="../assets/die_FRESH_1.png" width="25px"> = 1 point
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Twos</b> - Sum all the Twos that you've rolled.
+                                </td>
+                                <td>
+                                    <img src="../assets/die_FRESH_2.png" width="25px"> = 2 point
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Threes</b> - Sum all the Threes that you've rolled.
+                                </td>
+                                <td>
+                                    <img src="../assets/die_FRESH_3.png" width="25px"> = 3 point
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Fours</b> - Sum all the Fours that you've rolled.
+                                </td>
+                                <td>
+                                    <img src="../assets/die_FRESH_4.png" width="25px"> = 4 point
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Fives</b> - Sum all the Fives that you've rolled.
+                                </td>
+                                <td>
+                                    <img src="../assets/die_FRESH_5.png" width="25px"> = 5 point
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Sixes</b> - Sum all the Sixes that you've rolled.
+                                </td>
+                                <td>
+                                    <img src="../assets/die_FRESH_6.png" width="25px"> = 6 point
+                                </td>
+                            </tr>
+                       </table>
+        
+
+                        <h3>LOWER SECTION</h3>
+         
+                        <table width="95%" style="border:1px;">
+                             <tr>
+                                 <td width="78%">
+                                     <b>3 of a kind</b>
+                                     <br/>If you have 3 of a kind, sum all these dice.
+                                     <br/>
+                                     <i>Example: 3*6 + 3 + 5 = 26 points</i>
+                                     <br/>
+                                     <img src="../assets/die_FRESH_6.png" width="25px"> 
+                                     <img src="../assets/die_FRESH_6.png" width="25px"> 
+                                     <img src="../assets/die_FRESH_6.png" width="25px"> 
+                                     <img src="../assets/die_FRESH_3.png" width="25px"> 
+                                     <img src="../assets/die_FRESH_5.png" width="25px"> 
+                                 </td>
+                                 <td width="22%">
+                                     <b>Total: 26 points</b>
+                                 </td>
+                             </tr>
+                             <tr>
+                                <td><hr></td>
+                                <td><hr></td>
+                             </tr>
+                             <tr>
+                                <td>
+                                    <b>4 of a kind</b>
+                                    <br/>If you have 4 of a kind, sum all these dice.
+                                    <br/>
+                                    <i>Example: 4*5 + 2 = 22 points</i>
+                                    <br/>
+                                    <img src="../assets/die_FRESH_5.png" width="25px">
+                                    <img src="../assets/die_FRESH_5.png" width="25px">
+                                    <img src="../assets/die_FRESH_5.png" width="25px">
+                                    <img src="../assets/die_FRESH_5.png" width="25px">
+                                    <img src="../assets/die_FRESH_2.png" width="25px">
+                                </td>
+                                <td>
+                                    <b>Total: 22 points</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><hr></td>
+                                <td><hr></td>
+                             </tr>
+                             <tr>
+                                <td>
+                                    <b>Full House</b>
+                                    <br/>3 of a kind and 2 of another kind. 
+                                    <br/>Full House is always worth 25 points! 
+                                    <br/>
+                                    <i>Example: 3*3 + 2*5 = 19 points</i>, but you receive 25 points.
+                                    <br/>
+                                    <img src="../assets/die_FRESH_3.png" width="25px">
+                                    <img src="../assets/die_FRESH_3.png" width="25px">
+                                    <img src="../assets/die_FRESH_3.png" width="25px">
+                                    <img src="../assets/die_FRESH_5.png" width="25px">
+                                    <img src="../assets/die_FRESH_5.png" width="25px">
+                                </td>
+                                <td>
+                                    <b>Total: 25 points</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><hr></td>
+                                <td><hr></td>
+                             </tr>
+                             <tr>
+                                <td>
+                                    <b>Small Straight</b>
+                                    <br/>Any sequence of 4 numbers. 
+                                    <br/>Any Small Straight is always worth 30 points! 
+                                    <br/>
+                                    <i>Example: 1 + 2 + 3 + 4 + 2 = 12 points</i>, but you receive 30 points.
+                                    <br/>
+                                    <img src="../assets/die_FRESH_1.png" width="25px">
+                                    <img src="../assets/die_FRESH_2.png" width="25px">
+                                    <img src="../assets/die_FRESH_3.png" width="25px">
+                                    <img src="../assets/die_FRESH_4.png" width="25px">
+                                    <img src="../assets/die_FRESH_2.png" width="25px">
+                                </td>
+                                <td>
+                                    <b>Total: 30 points</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><hr></td>
+                                <td><hr></td>
+                             </tr>
+                             <tr>
+                                <td>
+                                    <b>Large Straight</b>
+                                    <br/>Any sequence of 5 numbers. 
+                                    <br/>Any Large Straight is always worth 40 points! 
+                                    <br/>
+                                    <i>Example: 1 + 2 + 3 + 4 + 5 = 15 points</i>, but you receive 40 points.
+                                    <br/>
+                                    <img src="../assets/die_FRESH_1.png" width="25px">
+                                    <img src="../assets/die_FRESH_2.png" width="25px">
+                                    <img src="../assets/die_FRESH_3.png" width="25px">
+                                    <img src="../assets/die_FRESH_4.png" width="25px">
+                                    <img src="../assets/die_FRESH_5.png" width="25px">
+                                </td>
+                                <td>
+                                    <b>Total: 40 points</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><hr></td>
+                                <td><hr></td>
+                             </tr>
+                             <tr>
+                                <td>
+                                    <b>YAHTZEE</b>
+                                    <br/>5 of a kind. 
+                                    <br/>The first YAHTZEE you score is always worth 50 points! 
+                                    <br/>But notice! - You may score again YAHTZEE and then you receive 100 points bonus.
+                                    <br/>
+                                    <i>Example: 2 + 2 + 2 + 2 + 2 = 10 points</i>, but you receive 50 points.
+                                    <br/>
+                                    <img src="../assets/die_FRESH_2.png" width="25px">
+                                    <img src="../assets/die_FRESH_2.png" width="25px">
+                                    <img src="../assets/die_FRESH_2.png" width="25px">
+                                    <img src="../assets/die_FRESH_2.png" width="25px">
+                                    <img src="../assets/die_FRESH_2.png" width="25px">
+                                </td>
+                                <td>
+                                    <b>Total: 50 points</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><hr></td>
+                                <td><hr></td>
+                             </tr>
+                             <tr>
+                                <td>
+                                    <b>Chance</b>
+                                    <br/>Score the total of any 5 dice.  
+                                    <br/>
+                                    <i>Example: 1 + 2 + 2 + 5 + 3 = 13 points</i> 
+                                    <br/>
+                                    <img src="../assets/die_FRESH_1.png" width="25px">
+                                    <img src="../assets/die_FRESH_2.png" width="25px">
+                                    <img src="../assets/die_FRESH_2.png" width="25px">
+                                    <img src="../assets/die_FRESH_5.png" width="25px"> 
+                                    <img src="../assets/die_FRESH_3.png" width="25px">
+                                </td>
+                                <td>
+                                    
+                                    <b>Total: 13 points</b>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>   
+                    
+                </div>
+                <!--///////////////////////////////////////////////////////////////////////////////////-->
+                <!-- // Footer // -->
+                <div class="modal-footer">
+                    <button (click)="closeModal()">Back to the game</button>
+                </div>
+            </div>
+        </div>
+        <div class="jw-modal-background"></div>
+</div>
